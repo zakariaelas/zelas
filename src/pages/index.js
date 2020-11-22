@@ -1,4 +1,5 @@
 import React from "react"
+import SEO from "../components/seo"
 import { keyframes } from "styled-components"
 import styled from "styled-components/macro"
 import { Project } from "../components/Project"
@@ -105,6 +106,7 @@ export default function Home() {
   return (
     <Page>
       <PageLayout>
+        <SEO />
         <div
           css={`
             display: flex;

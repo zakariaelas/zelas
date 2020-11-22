@@ -7,13 +7,11 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Zakaria El Asri`,
-    author: {
-      name: `Zakaria El Asri`,
-      summary: ``,
-    },
-    description: `Personal website and portfolio`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    title: `Zelas · Portfolio`,
+    siteName: `zelas`,
+    description: `Personal website and portfolio of Zakaria El Asri`,
+    image: "/Home.png",
+    siteUrl: `https://zelas.netlify.app`,
     social: {
       github: `https://github.com/zakariaelas`,
       linkedin: `https://www.linkedin.com/in/zakaria-el-asri-850197169/`,
