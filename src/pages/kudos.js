@@ -16,6 +16,7 @@ const Paragraph = styled.p`
 const Hyperlink = styled.a`
   color: #0967d2;
   font-weight: bold;
+  font-size: 16px;
   text-decoration: underline;
   &:visited {
     color: #0967d2;
