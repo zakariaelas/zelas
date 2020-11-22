@@ -37,5 +37,11 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `google-plugin-google-analytics`,
+      options: {
+        trackingId: `G-Z2EGZ900Q7`,
+      },
+    },
   ],
 }
