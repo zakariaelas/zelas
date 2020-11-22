@@ -1,5 +1,4 @@
 import React from "react"
-import "../index.css"
 import { keyframes } from "styled-components"
 import styled from "styled-components/macro"
 import { Project } from "../components/Project"
