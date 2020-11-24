@@ -10,6 +10,7 @@ const Layout = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: -32px;
 `
 
 const NavLink = styled.a`
@@ -36,9 +37,7 @@ const NavLink = styled.a`
 const Nav = styled.div`
   display: flex;
   align-items: center;
-  ${small} {
-    margin-top: 32px;
-  }
+  margin-top: 32px;
 `
 
 export const Navbar = () => {
@@ -49,7 +48,14 @@ export const Navbar = () => {
   return (
     <Layout>
       <Link title="Home" to="/">
-        <Logo />
+        <div
+          css={`
+            display: flex;
+            margin-top: 32px;
+          `}
+        >
+          <Logo />
+        </div>
       </Link>
       <Nav>
         <NavLink onClick={clickHandler}>.projects</NavLink>
