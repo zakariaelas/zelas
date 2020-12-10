@@ -196,10 +196,9 @@ const Gemography = () => {
           <PrettyBold>advanced patterns</PrettyBold>,{" "}
           <PrettyBold>styling</PrettyBold>,{" "}
           <PrettyBold>UI libraries</PrettyBold>, and{" "}
-          <PrettyBold>folder structure</PrettyBold>
-          in React. I also learned about the{" "}
-          <PrettyBold>Twilio Video API</PrettyBold> and some of the underlying
-          concepts in WebRTC.
+          <PrettyBold>folder structure</PrettyBold> in React. I also learned
+          about the <PrettyBold>Twilio Video API</PrettyBold> and some of the
+          underlying concepts in WebRTC.
           <br />I believe I got much better at designing interfaces and crafting
           better user experiences. This was mainly thanks to a book suggestion
           (Refactoring UI) from my supervisor. It was such a good read and I
