@@ -1,14 +1,12 @@
 import React from "react"
-import SEO from "../components/seo"
 import { keyframes } from "styled-components"
 import styled from "styled-components/macro"
-import { Project } from "../components/Project"
-import KudosImg from "../assets/images/kudos-main.png"
 import Blob from "../assets/images/blob.svg"
-import GemographyImg from "../assets/images/gemography-main.png"
 import { PageLayout } from "../components/PageLayout"
-import { large, small } from "../lib/media-queries"
 import { ProjectRow } from "../components/Project"
+import { Gemography, Kudos, SessionTab } from "../components/Projects"
+import SEO from "../components/seo"
+import { large, small } from "../lib/media-queries"
 
 const MainHeading = styled.h1`
   font-size: 64px;
@@ -59,17 +57,6 @@ const SlideFromTop = keyframes`
   opacity: 1;
   transform: translateY(0px);
 }
-`
-
-const SlideFromBottom = keyframes`
-    0% {
-      opacity: 0;
-      transform: translateY(300px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
 `
 
 const SectionTitle = styled.h2`
@@ -181,7 +168,7 @@ export default function Home() {
           `}
         >
           <SectionTitle>
-            <a id="projects"></a>My Work
+            <a id="projects">My Work</a>
           </SectionTitle>
           <Paragraph
             css={`
@@ -199,27 +186,9 @@ export default function Home() {
               margin-bottom: 128px;
             `}
           >
-            <Project
-              title="Kudos"
-              to="/kudos"
-              imageName={"kudos-main"}
-              hoverColor="#0345a0"
-            >
-              An application to manage different services offered by the Center
-              for Learning Excellence at Al Akhawayn University such as
-              tutoring, mentoring, and writing center.
-            </Project>
-            <Project
-              title="Gemography"
-              to="/gemography"
-              imageName={"gemography-main"}
-              hoverColor="#6050dc"
-            >
-              I had the opportunity to intern at Gemography during the summer of
-              2020. You can read about my experience and how I believe I have
-              learned a lot from working under the supervision of senior
-              engineers.
-            </Project>
+            <Kudos />
+            <Gemography />
+            <SessionTab />
           </ProjectRow>
         </div>
       </PageLayout>

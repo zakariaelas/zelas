@@ -1,17 +1,11 @@
+import { graphql } from "gatsby"
+import Image from "gatsby-image"
 import React from "react"
 import styled from "styled-components/macro"
 import { PageLayout } from "../components/PageLayout"
-
-import { small, medium } from "../lib/media-queries"
 import { PrettyBold, Section, SectionHeading } from "../lib"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
-
-const Paragraph = styled.p`
-  line-height: 28px;
-  font-size: 16px;
-  padding: 0;
-`
+import { medium, small } from "../lib/media-queries"
+import { Paragraph } from "../lib/Paragraph"
 
 const ImageContainer = styled.div`
   margin: 0;
@@ -23,7 +17,7 @@ const ImageContainer = styled.div`
 const Gemography = ({ data }) => {
   const { orbit, internship, grabit } = data
   return (
-    <PageLayout>
+    <PageLayout withOtherProjects>
       <Section
         css={`
           display: flex;

@@ -1,26 +1,12 @@
+import { graphql } from "gatsby"
+import Image from "gatsby-image"
 import React from "react"
 import styled from "styled-components/macro"
 import { PageLayout } from "../components/PageLayout"
 import { PrettyBold, Section, SectionHeading } from "../lib"
+import { Hyperlink } from "../lib/Hyperlink"
 import { small } from "../lib/media-queries"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
-
-const Paragraph = styled.p`
-  font-size: 16px;
-  line-height: 28px;
-  padding: 0;
-`
-
-const Hyperlink = styled.a`
-  color: #0967d2;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: underline;
-  &:visited {
-    color: #0967d2;
-  }
-`
+import { Paragraph } from "../lib/Paragraph"
 
 const ImageContainer = styled.div`
   display: flex;
@@ -37,7 +23,7 @@ const Kudos = ({ data }) => {
   const { technologies, homepage, screens } = data
   console.log(technologies, homepage, screens)
   return (
-    <PageLayout>
+    <PageLayout withOtherProjects>
       <Section
         css={`
           max-width: 720px;
@@ -55,10 +41,13 @@ const Kudos = ({ data }) => {
           Kudos
         </h1>
         <Paragraph>
-          <Hyperlink href="https://kudos.aui.ma">Kudos</Hyperlink> is a web app
-          that solves some problems and pains the tutoring department at my
-          university was facing. It allows tutors and mentors to add their
-          weekly availability according to which other students will book them.
+          <Hyperlink color="#0967d2" href="https://kudos.aui.ma">
+            Kudos
+          </Hyperlink>{" "}
+          is a web app that solves some problems and pains the tutoring
+          department at my university was facing. It allows tutors and mentors
+          to add their weekly availability according to which other students
+          will book them.
         </Paragraph>
         <Paragraph>
           The project also enables the full-time employees of the department,

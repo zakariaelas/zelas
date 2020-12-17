@@ -1,9 +1,9 @@
+import { navigate } from "@reach/router"
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components/macro"
 import Logo from "../../assets/icons/logo.svg"
-import { Link } from "gatsby"
 import { small } from "../../lib/media-queries"
-import { navigate } from "@reach/router"
 
 const Layout = styled.div`
   display: flex;

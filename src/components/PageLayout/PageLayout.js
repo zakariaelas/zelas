@@ -3,7 +3,7 @@ import { Container } from "../../lib"
 import { Footer } from "../Footer"
 import { Navbar } from "../Navbar"
 
-export const PageLayout = ({ children }) => {
+export const PageLayout = ({ children, withOtherProjects }) => {
   return (
     <>
       <Container>
@@ -16,7 +16,7 @@ export const PageLayout = ({ children }) => {
         </div>
         {children}
       </Container>
-      <Footer />
+      <Footer withOtherProjects={withOtherProjects} />
     </>
   )
 }

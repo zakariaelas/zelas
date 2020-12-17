@@ -1,19 +1,19 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components/macro"
-import { Container } from "../../lib"
-import { small } from "../../lib/media-queries"
-import { Github, LinkedIn } from "../../lib"
 import Logo from "../../assets/icons/logo.svg"
-import { Link } from "gatsby"
+import { Container, Github, LinkedIn } from "../../lib"
+import { small } from "../../lib/media-queries"
+import OtherProjects from "../OtherProjects/OtherProjects"
 
 const Layout = styled.footer`
   background-color: #f0f4f8;
-  padding-top: 48px;
+  padding-top: 96px;
   padding-bottom: 32px;
   margin-top: 144px;
 `
 
-const Heading = styled.h1`
+const Heading = styled.h2`
   font-size: 40px;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
@@ -31,10 +31,26 @@ const Social = styled.div`
   aling-items: center;
 `
 
-export const Footer = () => {
+export const Footer = ({ withOtherProjects }) => {
   return (
     <Layout>
       <Container>
+        {withOtherProjects ? (
+          <div
+            css={`
+              margin-bottom: 96px;
+            `}
+          >
+            <Heading
+              css={`
+                margin-bottom: 80px;
+              `}
+            >
+              Other Projects
+            </Heading>
+            <OtherProjects />
+          </div>
+        ) : null}
         <Heading>Get in touch with me</Heading>
         <p
           css={`

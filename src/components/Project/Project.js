@@ -1,9 +1,9 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import Image from "gatsby-image"
 import React from "react"
 import styled from "styled-components/macro"
 import RightIcon from "../../assets/icons/right.svg"
 import { small } from "../../lib/media-queries"
-import Image from "gatsby-image"
 
 const Paragraph = styled.p`
   font-size: 16px;
@@ -47,14 +47,8 @@ const ProjectLink = styled.p`
 const Container = styled.div`
   margin: 0;
   padding: 0;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  margin-right: 32px;
-  flex: 1;
-  &:last-child {
-    margin-right: 0;
+  & ${ProjectLink} {
+    border-bottom: 2px solid transparent;
   }
   &:hover ${ImageContainer} {
     transform: translateY(-10px);
