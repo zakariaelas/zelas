@@ -2,10 +2,9 @@ import React from "react"
 import styled from "styled-components/macro"
 import { PageLayout } from "../components/PageLayout"
 import { PrettyBold, Section, SectionHeading } from "../lib"
-import Technologies from "../assets/images/technologies.png"
-import KudosHomepage from "../assets/images/kudos-homepage.png"
-import KudosScreens from "../assets/images/kudos-screens.png"
 import { small } from "../lib/media-queries"
+import { graphql } from "gatsby"
+import Image from "gatsby-image"
 
 const Paragraph = styled.p`
   font-size: 16px;
@@ -34,7 +33,9 @@ const ListItem = styled.li`
   line-height: 28px;
 `
 
-const Kudos = () => {
+const Kudos = ({ data }) => {
+  const { technologies, homepage, screens } = data
+  console.log(technologies, homepage, screens)
   return (
     <PageLayout>
       <Section
@@ -71,13 +72,13 @@ const Kudos = () => {
           margin-top: 96px;
         `}
       >
-        <img
+        <Image
           css={`
             width: 100%;
             height: 100%;
           `}
           alt="Kudos homepage screenshot"
-          src={KudosHomepage}
+          fluid={homepage.childImageSharp.fluid}
         />
       </ImageContainer>
       <Section
@@ -138,7 +139,14 @@ const Kudos = () => {
             }
           `}
         >
-          <img alt="Technologies used" src={Technologies} />
+          <Image
+            css={`
+              width: 100%;
+              height: 100%;
+            `}
+            alt="Technologies used"
+            fixed={technologies.childImageSharp.fixed}
+          />
         </div>
         <div
           css={`
@@ -198,13 +206,13 @@ const Kudos = () => {
           margin-top: 96px;
         `}
       >
-        <img
+        <Image
           css={`
             width: 100%;
             height: 100%;
           `}
           alt="Kudos screens screenshots"
-          src={KudosScreens}
+          fluid={screens.childImageSharp.fluid}
         />
       </ImageContainer>
       <Section>
@@ -262,3 +270,29 @@ const Kudos = () => {
 }
 
 export default Kudos
+
+export const query = graphql`
+  query KudosImagesQuery {
+    technologies: file(relativePath: { eq: "technologies.png" }) {
+      childImageSharp {
+        fixed {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    homepage: file(relativePath: { eq: "kudos-homepage.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    screens: file(relativePath: { eq: "kudos-screens.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

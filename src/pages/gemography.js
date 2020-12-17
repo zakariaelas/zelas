@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components/macro"
 import { PageLayout } from "../components/PageLayout"
-import Orbit from "../assets/images/orbit.png"
-import InternshipProject from "../assets/images/internship.png"
-import Grabit from "../assets/images/grabit.png"
+
 import { small, medium } from "../lib/media-queries"
 import { PrettyBold, Section, SectionHeading } from "../lib"
+import { graphql } from "gatsby"
+import Image from "gatsby-image"
 
 const Paragraph = styled.p`
   line-height: 28px;
@@ -20,7 +20,8 @@ const ImageContainer = styled.div`
   transition: all 0.2s;
 `
 
-const Gemography = () => {
+const Gemography = ({ data }) => {
+  const { orbit, internship, grabit } = data
   return (
     <PageLayout>
       <Section
@@ -95,13 +96,13 @@ const Gemography = () => {
         `}
       >
         <ImageContainer>
-          <img
+          <Image
             alt="Technologies used during the internship"
             css={`
               width: 100%;
               height: 100%;
             `}
-            src={Orbit}
+            fluid={orbit.childImageSharp.fluid}
           />
         </ImageContainer>
         <div
@@ -149,13 +150,13 @@ const Gemography = () => {
             text-align: center;
           `}
         >
-          <img
+          <Image
             css={`
               width: 100%;
               height: 100%;
             `}
             alt="Internship project screenshot"
-            src={InternshipProject}
+            fluid={internship.childImageSharp.fluid}
           />
         </ImageContainer>
         <Paragraph
@@ -174,13 +175,13 @@ const Gemography = () => {
             text-align: center;
           `}
         >
-          <img
+          <Image
             alt="Internship bootcamp project screenshot"
             css={`
               width: 100%;
               height: 100%;
             `}
-            src={Grabit}
+            fluid={grabit.childImageSharp.fluid}
           />
         </ImageContainer>
       </Section>
@@ -224,3 +225,29 @@ const Gemography = () => {
 }
 
 export default Gemography
+
+export const query = graphql`
+  query GemographyImagesQuery {
+    orbit: file(relativePath: { eq: "orbit.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    internship: file(relativePath: { eq: "internship.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    grabit: file(relativePath: { eq: "grabit.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

@@ -1,8 +1,9 @@
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components/macro"
 import RightIcon from "../../assets/icons/right.svg"
 import { small } from "../../lib/media-queries"
+import Image from "gatsby-image"
 
 const Paragraph = styled.p`
   font-size: 16px;
@@ -73,7 +74,29 @@ const Container = styled.div`
   }
 `
 
-export const Project = ({ title, image, description, to, hoverColor }) => {
+export const Project = ({ title, imageName, to, hoverColor, children }) => {
+  const {
+    allFile: { edges },
+  } = useStaticQuery(graphql`
+    query ImagesQuery {
+      allFile {
+        edges {
+          node {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+            name
+          }
+        }
+      }
+    }
+  `)
+
+  const image = edges.filter(edge => edge.node.name === imageName)[0].node
+    .childImageSharp.fluid
+
   return (
     <Container hoverColor={hoverColor}>
       <Link title={title} to={to}>
@@ -81,17 +104,17 @@ export const Project = ({ title, image, description, to, hoverColor }) => {
       </Link>
       <Link title={title} to={to}>
         <ImageContainer>
-          <img
+          <Image
             css={`
               width: 100%;
               height: 100%;
               border-radius: 10px;
             `}
-            src={image}
+            fluid={image}
           />
         </ImageContainer>
       </Link>
-      <Paragraph>{description}</Paragraph>
+      <Paragraph>{children}</Paragraph>
       <Link title={title} to={to}>
         <ProjectLink>
           Read More{" "}
