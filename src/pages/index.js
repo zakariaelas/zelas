@@ -7,6 +7,7 @@ import { ProjectRow } from "../components/Project"
 import { Gemography, Kudos, SessionTab } from "../components/Projects"
 import SEO from "../components/seo"
 import { large, small } from "../lib/media-queries"
+import { egg } from "../utils/easter-egg"
 
 const MainHeading = styled.h1`
   font-size: 64px;
@@ -90,6 +91,7 @@ const SlideFromRight = keyframes`
 `
 
 export default function Home() {
+  egg()
   return (
     <Page>
       <PageLayout>
