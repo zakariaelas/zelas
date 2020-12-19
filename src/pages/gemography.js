@@ -83,25 +83,34 @@ const Gemography = ({ data }) => {
         css={`
           display: flex;
           align-items: center;
+          flex-wrap: reverse;
           justify-content: space-between;
-          ${small} {
-            display: block;
-          }
         `}
       >
-        <ImageContainer>
+        <ImageContainer
+          css={`
+            display: flex;
+            justify-content: center;
+          `}
+        >
           <Image
             alt="Technologies used during the internship"
             css={`
               width: 100%;
               height: 100%;
             `}
-            fluid={orbit.childImageSharp.fluid}
+            fixed={orbit.childImageSharp.fixed}
           />
         </ImageContainer>
         <div
           css={`
             max-width: 620px;
+            ${medium} {
+              max-width: 100%;
+            }
+            ${small} {
+              max-width: 100%;
+            }
           `}
         >
           <SectionHeading>Tasks</SectionHeading>
@@ -224,8 +233,8 @@ export const query = graphql`
   query GemographyImagesQuery {
     orbit: file(relativePath: { eq: "orbit.png" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
+        fixed {
+          ...GatsbyImageSharpFixed
         }
       }
     }
