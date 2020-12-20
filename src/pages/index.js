@@ -1,94 +1,13 @@
 import React from "react"
-import { keyframes } from "styled-components"
 import styled from "styled-components/macro"
 import Blob from "../assets/images/blob.svg"
 import { PageLayout } from "../components/PageLayout"
 import { ProjectRow } from "../components/Project"
 import { Gemography, Kudos, SessionTab } from "../components/Projects"
 import SEO from "../components/seo"
+import { SlideFromLeft, SlideFromRight, SlideFromTop } from "../lib/Animations"
 import { large, small } from "../lib/media-queries"
 import { egg } from "../utils/easter-egg"
-
-const MainHeading = styled.h1`
-  font-size: 64px;
-  font-weight: bold;
-  line-height: 96px;
-  margin: 0;
-  padding: 0;
-  ${small} {
-    font-size: 48px;
-    line-height: 80px;
-  }
-  color: var(--color-primary-main);
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: var(--color-primary-main);
-`
-
-const Page = styled.div`
-  ${large} {
-    background: url(${Blob});
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-`
-
-const Paragraph = styled.p`
-  display: block;
-  font-size: 16px;
-  line-height: 38px;
-  margin: 0;
-  margin-top: 26px;
-  ${small} {
-    line-height: 38px;
-  }
-`
-
-const Bio = styled.div`
-  max-width: 730px;
-`
-
-const SlideFromTop = keyframes`
-0%{
-  opacity: 0.8;
-  transform: translateY(-300px);
-}
-100%{
-  opacity: 1;
-  transform: translateY(0px);
-}
-`
-
-const SectionTitle = styled.h2`
-  font-size: 40px;
-  line-height: 48px;
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 32px;
-`
-
-const SlideFromLeft = keyframes`
-    0%{
-      opacity: 0.8;
-      transform: translate(-300px);
-    }
-    100%{
-      opacity: 1;
-      transform: translate(0px);
-    }
-`
-const SlideFromRight = keyframes`
-    0%{
-      opacity: 0.8;
-      transform: translate(300px);
-    }
-    100%{
-      opacity: 1;
-      transform: translate(0px);
-    }
-`
 
 export default function Home() {
   egg()
@@ -100,17 +19,14 @@ export default function Home() {
           css={`
             display: flex;
             justify-content: flex-end;
+            padding-top: 128px;
+            min-height: 90vh;
+            ${small} {
+              padding-top: 64px;
+            }
           `}
         >
-          <div
-            css={`
-              padding-top: 128px;
-              min-height: 90vh;
-              ${small} {
-                padding-top: 64px;
-              }
-            `}
-          >
+          <div>
             <MainHeading>
               <span
                 css={`
@@ -127,6 +43,7 @@ export default function Home() {
                   animation: 0.5s ease ${SlideFromRight} forwards;
                 `}
               >
+                {" "}
                 I'm{" "}
                 <span
                   css={`
@@ -197,3 +114,52 @@ export default function Home() {
     </Page>
   )
 }
+
+const MainHeading = styled.h1`
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 96px;
+  margin: 0;
+  padding: 0;
+  ${small} {
+    font-size: 48px;
+    line-height: 80px;
+  }
+  color: var(--color-primary-main);
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--color-primary-main);
+`
+
+const Page = styled.div`
+  ${large} {
+    background: url(${Blob});
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+`
+
+const Paragraph = styled.p`
+  display: block;
+  font-size: 16px;
+  line-height: 38px;
+  margin: 0;
+  margin-top: 26px;
+  ${small} {
+    line-height: 38px;
+  }
+`
+
+const Bio = styled.div`
+  max-width: 730px;
+`
+
+const SectionTitle = styled.h2`
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 32px;
+`
