@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import Blob from "../assets/images/blob.svg"
 import { PageLayout } from "../components/PageLayout"
 import { ProjectRow } from "../components/Project"
-import { Gemography, Kudos, SessionTab } from "../components/Projects"
+import { Gemography, Kudos, SessionTab, PeelingRage } from "../components/Projects"
 import SEO from "../components/seo"
 import { SlideFromLeft, SlideFromRight, SlideFromTop } from "../lib/Animations"
 import { large, small } from "../lib/media-queries"
@@ -87,7 +87,7 @@ export default function Home() {
           `}
         >
           <SectionTitle>
-            <a id="projects">My Work</a>
+            <a href="#projects" id="projects">My Work</a>
           </SectionTitle>
           <Paragraph
             css={`
@@ -108,6 +108,7 @@ export default function Home() {
             <Kudos />
             <Gemography />
             <SessionTab />
+            <PeelingRage />
           </ProjectRow>
         </div>
       </PageLayout>

@@ -45,3 +45,13 @@ export const SessionTab = () => {
     </Project>
   )
 }
+
+export const PeelingRage = () => {
+  return (
+    <Project title="Peeling Rage" to="https://peelingrage.netlify.app" imageName={"blog"} hoverColor="#5a67d8">
+      <i>Credits to Andrew Neel (<a href="https://unsplash.com/photos/cckf4TsHAuw">Unsplash</a>) for the image.</i>
+      <br /> 
+      A personal blog where I document my learning and findings. I usually challenge myself to write whenever I start reading about a new topic or find something interesting to share.
+    </Project>
+  )
+}

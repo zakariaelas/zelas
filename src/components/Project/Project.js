@@ -101,7 +101,7 @@ export const Project = ({ title, imageName, to, hoverColor, children }) => {
           <Image
             css={`
               width: 100%;
-              height: 100%;
+              height: 300px;
               border-radius: 10px;
             `}
             fluid={image}
